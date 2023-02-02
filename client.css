@@ -1,0 +1,84 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+body{
+    background-color: #6998ce;
+}
+.view{
+    width: 100%;
+    height: fit-content;
+    position: absolute;
+    top: 0px;
+    left: 0px;
+}
+
+#container{
+    width: 600px;
+    height: 400px;
+    margin: 100px auto 0px auto;
+    position: relative;
+}
+
+#logo{
+    width: auto;
+    height: calc(100% - 2px);
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    background-color: beige;
+    border: 1px solid black;
+}
+form h3{
+    margin: 13px auto 8px auto;
+    width: fit-content;
+}
+
+#login{
+    width: 250px;
+    position: absolute;
+    top: 0px;
+    right: 0px;
+    background-color: beige;
+    border: 1px solid black;
+    
+}
+
+#signup{
+    width: 250px;
+    position: absolute;
+    bottom: 0px;
+    right: 0px;
+    background-color: beige;
+    border: 1px solid black;
+}
+
+form div{
+    margin: 5px 3px;
+}
+
+.label{
+    display: inline-block;
+    width: 93px;
+}
+.input{
+    box-sizing: content-box;
+    width: 143px;
+}
+
+.submit{
+    margin: 0px 5px 5px 5px;
+    float: right;
+    padding: 3px 5px;
+}
+
+#userMessages{
+    width: fit-content;
+    height: fit-content;
+    margin: 10px auto;
+    padding: 5px 20px;
+    background-color: beige;
+    border: 1px solid black;
+    display: none;
+}
+/*----------------------------------------------*/

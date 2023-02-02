@@ -1,0 +1,72 @@
+*{
+    margin: 0;
+    padding: 0;
+    font-family: Inter,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen,Ubuntu,Cantarell,Fira Sans,Droid Sans,Helvetica Neue,sans-serif;
+}
+body{
+    background-color: #6998ce;
+}
+
+#container{
+    width: 600px;
+    height: 400px;
+    margin: 100px auto 0px auto;
+    position: relative;
+    background-color: beige;
+    border: 1px solid black;
+}
+
+
+
+#tabHeader{
+    position: fixed;
+    top: 0px;
+    left: 0px;
+    width: 200px;
+    height: 100vh;
+    display: flex;
+    
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.tab{
+    width: 150px;
+    height: 50px;
+    margin: 20px 0px;
+    display: grid; 
+    align-items: center;
+    background-color: beige;
+    border: 1px solid black;
+}
+.active{
+    background-color: black;
+}
+.active h3{
+    color: beige;
+}
+.tab:hover{
+    scale: 1.2;
+    cursor: pointer;
+}
+.tab:hover h3{
+    scale: 1.2;
+}
+.tab h3{
+    margin: 10px auto 10px auto;
+    width: fit-content;
+}
+
+
+
+#userMessages{
+    width: fit-content;
+    height: fit-content;
+    margin: 10px auto;
+    padding: 5px 20px;
+    background-color: beige;
+    border: 1px solid black;
+    display: none;
+}
+/*----------------------------------------------*/

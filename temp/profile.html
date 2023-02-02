@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet"type="text/css" href="profile.css">
+    <title>Document</title>
+</head>
+<body>
+    <div id="tabHeader">
+        <div class="tab active" id="home">
+            <H3>Home</H3>
+        </div>
+        <div class="tab" id="browse">
+            <H3>Browse</H3>
+        </div>
+        <div class="tab" id="account">
+            <H3>Account</H3>
+        </div>
+    </div>
+    <div id="tabcontainer">
+        <img id="logo" src="wimage.png" alt="Welcome">
+        <form id="login" onsubmit="login(this);return false;">
+            <H3>Login Here</H3>
+            <div>
+                <label for="loginEmail" class="label">Email: </label>
+                <input id="loginEmail" class="input" type="email" required>
+            </div>
+            <div>
+                <label for="loginPassword" class="label">Password: </label>
+                <input id="loginPassword" class="input" type="password" required>
+            </div>
+            <input id="loginSubmit" class="submit" type="submit" value="Login">
+        </form>
+        <form id="signup" onsubmit="signup(this);return false;">
+            <H3>SignUp Here</H3>
+            <div>
+                <label for="fname" class="label">First Name: </label>
+                <input id="fname" class="input" type="text" required>
+            </div>
+            <div>
+                <label for="lname" class="label">Family Name: </label>
+                <input id="lname" class="input" type="text" required>
+            </div>
+            <div>
+                <label for="city" class="label">City: </label>
+                <input id="city" class="input" type="text" required>
+            </div>
+            <div>
+                <label for="gender" class="label">Gender: </label>
+                <select id="gender" class="input" required>
+                    <option value="" Selected>Select a Gender</option>
+                    <option value="Male">Male</option>
+                    <option value="Female">Female</option>
+                    <option value="Other">Other</option>
+                </select>
+            </div>
+            <div>
+                <label for="country" class="label">Country: </label>
+                <input id="country" class="input" type="text" required>
+            </div>
+            <div>
+                <label for="signupEmail" class="label">Email: </label>
+                <input id="signupEmail" class="input" type="email" required>
+            </div>
+            <div>
+                <label for="signupPassword" class="label">Password: </label>
+                <input id="signupPassword" class="input" type="password" required>
+            </div>
+            <div>
+                <label for="repassword" class="label">Repeat PSW: </label>
+                <input id="repassword" class="input" type="password" required>
+            </div>
+            <input id="signupSubmit" class="submit" type="submit" value="SignUp">
+        </form>
+    </div>
+    <p id="userMessages"></p>
+</body>
+</html>
