@@ -10,17 +10,17 @@
 <body>
     <div id="container">
         <img id="logo" src="wimage.png" alt="Welcome">
-        <form id="login" onsubmit="login(this);return false;">
-            <H3>Login Here</H3>
+        <form id="signIn" onsubmit="signIn(this);return false;">
+            <H3>Signin Here</H3>
             <div>
-                <label for="loginEmail" class="label">Email: </label>
-                <input id="loginEmail" class="input" type="email" required>
+                <label for="signInEmail" class="label">Email: </label>
+                <input id="signInEmail" class="input" type="email" required>
             </div>
             <div>
-                <label for="loginPassword" class="label">Password: </label>
-                <input id="loginPassword" class="input" type="password" required>
+                <label for="signInPassword" class="label">Password: </label>
+                <input id="signInPassword" class="input" type="password" required>
             </div>
-            <input id="loginSubmit" class="submit" type="submit" value="Login">
+            <input id="signInSubmit" class="submit" type="submit" value="Sign In">
         </form>
         <form id="signup" onsubmit="signup(this);return false;">
             <H3>SignUp Here</H3>
@@ -61,7 +61,7 @@
                 <label for="repassword" class="label">Repeat PSW: </label>
                 <input id="repassword" class="input" type="password" required>
             </div>
-            <input id="signupSubmit" class="submit" type="submit" value="SignUp">
+            <input id="signupSubmit" class="submit" type="submit" value="Sign Up">
         </form>
     </div>
     <p id="userMessages"></p>

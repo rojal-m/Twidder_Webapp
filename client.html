@@ -6,17 +6,17 @@
         <script type="text/view" id="welcomeView">
             <div id="container">
                 <img id="logo" src="wimage.png" alt="Welcome">
-                <form id="login" onsubmit="login(this);return false;">
-                    <H3>Login Here</H3>
+                <form id="signIn" onsubmit="signIn(this);return false;">
+                    <H3>Signin Here</H3>
                     <div>
-                        <label for="loginEmail" class="label">Email: </label>
-                        <input id="loginEmail" class="input" type="email" required>
+                        <label for="signInEmail" class="label">Email: </label>
+                        <input id="signInEmail" class="input" type="email" required>
                     </div>
                     <div>
-                        <label for="loginPassword" class="label">Password: </label>
-                        <input id="loginPassword" class="input" type="password" required>
+                        <label for="signInPassword" class="label">Password: </label>
+                        <input id="signInPassword" class="input" type="password" required>
                     </div>
-                    <input id="loginSubmit" class="submit" type="submit" value="Login">
+                    <input id="signInSubmit" class="submit" type="submit" value="Sign In">
                 </form>
                 <form id="signup" onsubmit="signup(this);return false;">
                     <H3>SignUp Here</H3>
@@ -57,13 +57,75 @@
                         <label for="repassword" class="label">Repeat PSW: </label>
                         <input id="repassword" class="input" type="password" required>
                     </div>
-                    <input id="signupSubmit" class="submit" type="submit" value="SignUp">
+                    <input id="signupSubmit" class="submit" type="submit" value="Sign Up">
                 </form>
             </div>
             <p id="userMessages"></p>
         </script>
         <script type="text/view" id="profileView">
-            <H1>This is profile View</H1>
+            <div id="tabHeader">
+                <div class="tab" onclick="openTab('Home')">
+                    <H3>Home</H3>
+                </div>
+                <div class="tab" onclick="openTab('Browse')">
+                    <H3>Browse</H3>
+                </div>
+                <div class="tab" onclick="openTab('Account')">
+                    <H3>Account</H3>
+                </div>
+            </div>
+            <div id="tabcontainer">
+                <div id="Home">
+                    <div id="homeContainer">
+                        <div class="userInfo" id="userInfo" >
+                            <H2 id="name"></H2>
+                            <br>
+                            <h4>Email</h4>
+                            <p id="email"></p>
+                            <h4>Gender</h4>
+                            <p id="gender"></p>
+                            <h4>Address</h4>
+                            <p id="address"></p> 
+                        </div>
+                        <div class="postMessage">
+                            <form id="postArea" onsubmit="postMessage(this);return false;">
+                                    <textarea placeholder="What's on your mind?"></textarea>
+                                    <input id="post_button" type="submit" value="Post">
+                            </form>
+                        </div>    
+                    </div>
+                    <div class="feedcontainer">
+                        <div id="feedheader">
+                            <h4>New Feed</h4>
+                            <button id="refreshFeed">Refresh</button>
+                        </div>
+                    </div>
+                </div>
+                <div id="Browse">
+                    <H3>Browse</H3>
+                </div>
+                <div id="Account" >
+                    <H3>Account</H3>
+                    <button onclick="signOut()">Sign Out</button>
+                    <form id="pswChange" onsubmit="passwordChange(this);return false;">
+                        <H3>Reset Password</H3>
+                        <div class="inputBox">
+                            <input id="currPsw" type="password" required>
+                            <span>Current Password</span>
+                        </div>
+                        <div class="inputBox">
+                            <input id="newPsw" type="password" required>
+                            <span>New Password</span>
+                        </div>
+                        <div class="inputBox">
+                            <input id="repassword" type="password" required>
+                            <span>Repeat Password</span>
+                        </div>
+                        <input id="pswChangeSubmit" type="submit" value="Save Password">
+                    </form>
+                </div>
+            </div>
+            <p id="userMessages"></p>
         </script>
     </head>
     <body>

@@ -6,6 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet"type="text/css" href="profile.css">
     <script src="profile.js"></script>
+    <script src="../serverstub.js" type="text/javascript"></script>
+
     <title>Document</title>
 </head>
 <body>
@@ -23,14 +25,15 @@
     <div id="tabcontainer">
         <div id="Home">
             <div id="homeContainer">
-                <div class="userInfo" onload="userInfo(this)">
-                    <H2>Rojal Maharjan</H2><br>
+                <div class="userInfo" id="userInfo" >
+                    <H2 id="name"></H2>
+                    <br>
                     <h4>Email</h4>
-                    <p>rojalmaharjan977@gmail.com </p>
+                    <p id="email"></p>
                     <h4>Gender</h4>
-                    <p> Male </p>
+                    <p id="gender"></p>
                     <h4>Address</h4>
-                    <p>Linköping, Sweden</p> 
+                    <p id="address"></p> 
                 </div>
                 <div class="postMessage">
                     <form id="postArea" onsubmit="postMessage(this);return false;">
@@ -42,7 +45,7 @@
             <div class="feedcontainer">
                 <div id="feedheader">
                     <h4>New Feed</h4>
-                    <button id="refreshFeed">refresh</button>
+                    <button id="refreshFeed">Refresh</button>
                 </div>
             </div>
         </div>
@@ -51,78 +54,24 @@
         </div>
         <div id="Account" >
             <H3>Account</H3>
-            <button>Sign Out</button>
+            <button onclick="signOut()">Sign Out</button>
             <form id="pswChange" onsubmit="passwordChange(this);return false;">
                 <H3>Reset Password</H3>
                 <div class="inputBox">
-                    <input id="currPsw" class="input" type="password" required>
-                    <span for="currPsw" class="label">Current Password</span>
+                    <input id="currPsw" type="password" required>
+                    <span>Current Password</span>
                 </div>
                 <div class="inputBox">
-                    <input id="newPsw" class="input" type="password" required>
-                    <span for="newPsw" class="label">New Password</span>
+                    <input id="newPsw" type="password" required>
+                    <span>New Password</span>
                 </div>
                 <div class="inputBox">
-                    <input id="repassword" class="input" type="password" required>
-                    <span for="repassword" class="label">Repeat Password</span>
+                    <input id="repassword" type="password" required>
+                    <span>Repeat Password</span>
                 </div>
-                <input id="pswChangeSubmit" class="submit" type="submit" value="Save Password">
+                <input id="pswChangeSubmit" type="submit" value="Save Password">
             </form>
         </div>
-        <!-- <img id="logo" src="wimage.png" alt="Welcome"> -->
-        <!-- <form id="login" onsubmit="login(this);return false;">
-            <H3>Login Here</H3>
-            <div>
-                <label for="loginEmail" class="label">Email: </label>
-                <input id="loginEmail" class="input" type="email" required>
-            </div>
-            <div>
-                <label for="loginPassword" class="label">Password: </label>
-                <input id="loginPassword" class="input" type="password" required>
-            </div>
-            <input id="loginSubmit" class="submit" type="submit" value="Login">
-        </form>
-        <form id="signup" onsubmit="signup(this);return false;">
-            <H3>SignUp Here</H3>
-            <div>
-                <label for="fname" class="label">First Name: </label>
-                <input id="fname" class="input" type="text" required>
-            </div>
-            <div>
-                <label for="lname" class="label">Family Name: </label>
-                <input id="lname" class="input" type="text" required>
-            </div>
-            <div>
-                <label for="city" class="label">City: </label>
-                <input id="city" class="input" type="text" required>
-            </div>
-            <div>
-                <label for="gender" class="label">Gender: </label>
-                <select id="gender" class="input" required>
-                    <option value="" Selected>Select a Gender</option>
-                    <option value="Male">Male</option>
-                    <option value="Female">Female</option>
-                    <option value="Other">Other</option>
-                </select>
-            </div>
-            <div>
-                <label for="country" class="label">Country: </label>
-                <input id="country" class="input" type="text" required>
-            </div>
-            <div>
-                <label for="signupEmail" class="label">Email: </label>
-                <input id="signupEmail" class="input" type="email" required>
-            </div>
-            <div>
-                <label for="signupPassword" class="label">Password: </label>
-                <input id="signupPassword" class="input" type="password" required>
-            </div>
-            <div>
-                <label for="repassword" class="label">Repeat PSW: </label>
-                <input id="repassword" class="input" type="password" required>
-            </div>
-            <input id="signupSubmit" class="submit" type="submit" value="SignUp">
-        </form> -->
     </div>
     <p id="userMessages"></p>
 </body>

@@ -1,9 +1,17 @@
+.body{
+    background-color: #6d9886;
+}
 *{
     margin: 0;
     padding: 0;
 }
-body{
-    background-color: #6998ce;
+.bodyWelcome{
+    background-color: #6d9886;
+}
+.bodyProfile{
+    background-color: #f7f7f7;
+    color: #393e46;
+    font-family: Inter,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen,Ubuntu,Cantarell,Fira Sans,Droid Sans,Helvetica Neue,sans-serif;
 }
 .view{
     width: 100%;
@@ -29,12 +37,12 @@ body{
     background-color: beige;
     border: 1px solid black;
 }
-form h3{
+#container form h3{
     margin: 13px auto 8px auto;
     width: fit-content;
 }
 
-#login{
+#signIn{
     width: 250px;
     position: absolute;
     top: 0px;
@@ -53,7 +61,7 @@ form h3{
     border: 1px solid black;
 }
 
-form div{
+#container form div{
     margin: 5px 3px;
 }
 
@@ -82,3 +90,189 @@ form div{
     display: none;
 }
 /*----------------------------------------------*/
+#tabHeader{
+    width: 900px;
+    height: fit-content;
+    margin: 0px auto;
+    display: flex;
+    
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+
+    background-color: #6d9886;
+    border-radius: 0px 0px 10px 10px;
+}
+
+.tab{
+    width: 150px;
+    height: calc(50px-2px);
+    margin: 20px 20px;
+    display: grid; 
+    align-items: center;
+    background-color: #6d9886;
+    border: 2px solid #393e46;
+    border-radius: 5px;
+    cursor: pointer;
+    user-select: none;
+}
+.tab:hover{
+    background-color: #83ad9b;
+}
+.tab:active{
+    scale: 0.9;
+}
+.tab h3{
+    margin: 10px auto;
+    width: fit-content;
+    height: fit-content;
+}
+.active{
+    background-color: #393e46;
+}
+.active:hover{
+    scale: 1;
+    background-color: #393e46;
+}
+.active:active{
+    scale: 1;
+}
+.active h3{
+    color: #6d9886;
+}
+
+#tabcontainer{
+    width: 900px;
+    height: fit-content;
+    margin: 25px auto;
+    background-color: transparent;
+    border-radius: 10px;
+}
+/*-------------------------------------------*/
+#homeContainer{
+    display: flex;
+    flex-direction: row;
+    width: 900px;
+    height:max-content;
+}
+.userInfo{
+    width: 30%;
+    height: fit-content;
+    margin: 10px;
+    padding: 20px;
+    background-color: #6d9886;
+    border-radius: 10px;
+}
+.postMessage{
+    width: 70%;
+    height: auto;
+    margin: 10px;
+    padding: 20px;
+    background-color: #6d9886;
+    border-radius: 10px;
+}
+#postArea{
+    border: solid thin #aaa;
+    padding: 10px;
+    background-color: white;
+    border-radius: 10px;
+    height: calc(100% - 20px);
+}
+#postArea textarea{
+    width: 100%;
+    height: calc(100% - 30px);
+    border: none;
+    font-size: 14px;
+    font-family: Tahoma;
+    resize: vertical;
+}
+#postArea textarea:focus-visible{
+    outline: none;
+}
+#post_button{
+    float: right;
+    background: blue;
+    border: none;
+    color: white;
+    padding: 4px 11px;
+    font-size: 14px;
+    border-radius: 2px;
+    width: fit-content;
+    height: 30px;
+
+}
+/*-------------------------------------------*/
+.feedcontainer{
+    background-color: #6d9886; 
+    width: 840px;
+    border-radius: 10px;
+    margin: 10px;
+    padding: 20px;
+}
+#feedheader{
+    width: 100%;
+    height: fit-content;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+#refreshFeed{
+    background: blue;
+    border: none;
+    color: white;
+    padding: 4px 11px;
+    font-size: 14px;
+    border-radius: 2px;
+    width: fit-content;
+    height: 30px;
+}
+
+/*-------------------------------------------*/
+#userMessages{
+    width: fit-content;
+    height: fit-content;
+    margin: 10px auto;
+    padding: 5px 20px;
+    background-color: #6d9886;
+    border: 1px solid black;
+    display: none;
+}
+/*----------------------------------------------*/
+.inputBox{
+    position: relative;
+    width: 250px;
+    margin: 10px 0px;
+}
+.inputBox input{
+    width: 100%;
+    background: transparent;
+    border: 2px solid #393e46;
+    border-radius: 10px;
+    outline: none;
+    padding: 10px;
+    font-size: 1em;
+    color: #393e46;
+    transition: 0.5s;
+}
+.inputBox span{
+    position: absolute;
+    left: 0px;
+    top: 0px;
+    padding: 10px;
+    pointer-events: none;
+    font-size: 1em;
+    color: #393e46;
+    text-transform: uppercase;
+}
+.inputBox input:valid ~ span,
+.inputBox input:focus ~ span{
+    color: #393e46;
+    transform: translateX(10px) translateY(-7px);
+    padding: 0 10px;
+    background: #6d9886;
+    border-left: 1px solid #6d9886;
+    border-right: 1px solid #6d9886;
+    font-size: 0.65em;
+    letter-spacing: 0.2em;
+}
