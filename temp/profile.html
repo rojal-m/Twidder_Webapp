@@ -10,39 +10,41 @@
 </head>
 <body>
     <div id="tabHeader">
-        <div class="tab" id="home" onclick="openTab('Home')">
+        <div class="tab" onclick="openTab('Home')">
             <H3>Home</H3>
         </div>
-        <div class="tab" id="browse" onclick="openTab('Browse')">
+        <div class="tab" onclick="openTab('Browse')">
             <H3>Browse</H3>
         </div>
-        <div class="tab" id="account" onclick="openTab('Account')">
+        <div class="tab" onclick="openTab('Account')">
             <H3>Account</H3>
         </div>
     </div>
     <div id="tabcontainer">
         <div id="Home">
-            <H3>Home</H3>
-            <div class="userInfo" onload="userInfo(this)">
-                <H1>Rojal</H1> <H1>Maharjan</H1>
-                <H2>rojalmaharjan977@gmail.com</H2> 
-                <H3>Male</H3>
-                <H3>Linköping</H3><H3>Sweden</H3>
+            <div id="homeContainer">
+                <div class="userInfo" onload="userInfo(this)">
+                    <H2>Rojal Maharjan</H2><br>
+                    <h4>Email</h4>
+                    <p>rojalmaharjan977@gmail.com </p>
+                    <h4>Gender</h4>
+                    <p> Male </p>
+                    <h4>Address</h4>
+                    <p>Linköping, Sweden</p> 
+                </div>
+                <div class="postMessage">
+                    <form id="postArea" onsubmit="postMessage(this);return false;">
+                            <textarea placeholder="What's on your mind?"></textarea>
+                            <input id="post_button" type="submit" value="Post">
+                    </form>
+                </div>    
             </div>
-            <div class="postMessage">
-                <form onsubmit="postMessage(this);return false;">
-                    <H3>Whats on your mind?</H3>
-                    <div>
-                        <textarea id="messageBox" required>
-                        </textarea>
-                        <input type="submit" value="Post">
-                    </div>
-                </form>
+            <div class="feedcontainer">
+                <div id="feedheader">
+                    <h4>New Feed</h4>
+                    <button id="refreshFeed">refresh</button>
+                </div>
             </div>
-            <div class="feed">
-
-            </div>
-            <button class="refreshFeed"></button>
         </div>
         <div id="Browse">
             <H3>Browse</H3>

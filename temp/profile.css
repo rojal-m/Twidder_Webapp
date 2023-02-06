@@ -8,16 +8,6 @@ body{
     color: #393e46;
 }
 
-#tabcontainer{
-    width: 900px;
-    height: fit-content;
-    margin: 25px auto;
-    background-color: #6d9886;
-    border-radius: 10px;
-}
-
-
-
 #tabHeader{
     width: 900px;
     height: fit-content;
@@ -68,11 +58,82 @@ body{
     color: #6d9886;
 }
 
+#tabcontainer{
+    width: 900px;
+    height: fit-content;
+    margin: 25px auto;
+    border-radius: 10px;
+}
+/*-------------------------------------------*/
+#homeContainer{
+    display: flex;
+    flex-direction: row;
+    width: 900px;
+    height:max-content;
+}
+.userInfo{
+    width: 30%;
+    height: fit-content;
+    margin: 10px;
+    padding: 20px;
+    background-color: #6d9886;
+    border-radius: 10px;
+}
+.postMessage{
+    width: 70%;
+    height: auto;
+    margin: 10px;
+    padding: 20px;
+    background-color: #6d9886;
+    border-radius: 10px;
+}
+#postArea{
+    border: solid thin #aaa;
+    padding: 10px;
+    background-color: white;
+    border-radius: 10px;
+    height: calc(100% - 20px);
+}
+textarea{
+    width: 100%;
+    height: calc(100% - 30px);
+    border: none;
+    font-size: 14px;
+    font-family: Tahoma;
+    resize: vertical;
+}
+#post_button{
+    float: right;
+    background: blue;
+    border: none;
+    color: white;
+    padding: 4px;
+    font-size: 14px;
+    border-radius: 2px;
+    width: 50px;
+    height: 30px;
 
+}
+/*-------------------------------------------*/
+.feedcontainer{
+    background-color: #6d9886; 
+    width: 840px;
+    border-radius: 10px;
+    margin: 10px;
+    padding: 20px;
+}
+#feedheader{
+    width: 100%;
+    height: fit-content;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+#refreshFeed{
+   
+}
 
-
-
-
+/*-------------------------------------------*/
 #userMessages{
     width: fit-content;
     height: fit-content;
