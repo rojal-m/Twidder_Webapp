@@ -4,59 +4,72 @@
     font-family: Inter,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen,Ubuntu,Cantarell,Fira Sans,Droid Sans,Helvetica Neue,sans-serif;
 }
 body{
-    background-color: #6998ce;
+    background-color: #f7f7f7;
+    color: #393e46;
 }
 
-#container{
-    width: 600px;
-    height: 400px;
-    margin: 100px auto 0px auto;
-    position: relative;
-    background-color: beige;
-    border: 1px solid black;
+#tabcontainer{
+    width: 900px;
+    height: fit-content;
+    margin: 25px auto;
+    background-color: #6d9886;
+    border-radius: 10px;
 }
 
 
 
 #tabHeader{
-    position: fixed;
-    top: 0px;
-    left: 0px;
-    width: 200px;
-    height: 100vh;
+    width: 900px;
+    height: fit-content;
+    margin: 0px auto;
     display: flex;
     
-    flex-direction: column;
+    flex-direction: row;
     justify-content: center;
     align-items: center;
+
+    background-color: #6d9886;
+    border-radius: 0px 0px 10px 10px;
 }
 
 .tab{
     width: 150px;
-    height: 50px;
-    margin: 20px 0px;
+    height: calc(50px-2px);
+    margin: 20px 20px;
     display: grid; 
     align-items: center;
-    background-color: beige;
-    border: 1px solid black;
-}
-.active{
-    background-color: black;
-}
-.active h3{
-    color: beige;
-}
-.tab:hover{
-    scale: 1.2;
+    background-color: #6d9886;
+    border: 2px solid #393e46;
+    border-radius: 5px;
     cursor: pointer;
 }
-.tab:hover h3{
-    scale: 1.2;
+.tab:hover{
+    background-color: #83ad9b;
+}
+.tab:active{
+    scale: 0.9;
 }
 .tab h3{
-    margin: 10px auto 10px auto;
+    margin: 10px auto;
     width: fit-content;
+    height: fit-content;
 }
+.active{
+    background-color: #393e46;
+}
+.active:hover{
+    scale: 1;
+    background-color: #393e46;
+}
+.active:active{
+    scale: 1;
+}
+.active h3{
+    color: #6d9886;
+}
+
+
+
 
 
 
@@ -65,8 +78,45 @@ body{
     height: fit-content;
     margin: 10px auto;
     padding: 5px 20px;
-    background-color: beige;
+    background-color: #6d9886;
     border: 1px solid black;
     display: none;
 }
 /*----------------------------------------------*/
+.inputBox{
+    position: relative;
+    width: 250px;
+    margin: 10px 0px;
+}
+.inputBox input{
+    width: 100%;
+    background: transparent;
+    border: 2px solid #393e46;
+    border-radius: 10px;
+    outline: none;
+    padding: 10px;
+    font-size: 1em;
+    color: #393e46;
+    transition: 0.5s;
+}
+.inputBox span{
+    position: absolute;
+    left: 0px;
+    top: 0px;
+    padding: 10px;
+    pointer-events: none;
+    font-size: 1em;
+    color: #393e46;
+    text-transform: uppercase;
+}
+.inputBox input:valid ~ span,
+.inputBox input:focus ~ span{
+    color: #393e46;
+    transform: translateX(10px) translateY(-7px);
+    font-size: 0.65em;
+    padding: 0 10px;
+    background: #6d9886;
+    border-left: 1px solid #6d9886;
+    border-right: 1px solid #6d9886;
+    letter-spacing: 0.2em;
+}

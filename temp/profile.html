@@ -5,23 +5,70 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet"type="text/css" href="profile.css">
+    <script src="profile.js"></script>
     <title>Document</title>
 </head>
 <body>
     <div id="tabHeader">
-        <div class="tab active" id="home">
+        <div class="tab" id="home" onclick="openTab('Home')">
             <H3>Home</H3>
         </div>
-        <div class="tab" id="browse">
+        <div class="tab" id="browse" onclick="openTab('Browse')">
             <H3>Browse</H3>
         </div>
-        <div class="tab" id="account">
+        <div class="tab" id="account" onclick="openTab('Account')">
             <H3>Account</H3>
         </div>
     </div>
     <div id="tabcontainer">
-        <img id="logo" src="wimage.png" alt="Welcome">
-        <form id="login" onsubmit="login(this);return false;">
+        <div id="Home">
+            <H3>Home</H3>
+            <div class="userInfo" onload="userInfo(this)">
+                <H1>Rojal</H1> <H1>Maharjan</H1>
+                <H2>rojalmaharjan977@gmail.com</H2> 
+                <H3>Male</H3>
+                <H3>Linköping</H3><H3>Sweden</H3>
+            </div>
+            <div class="postMessage">
+                <form onsubmit="postMessage(this);return false;">
+                    <H3>Whats on your mind?</H3>
+                    <div>
+                        <textarea id="messageBox" required>
+                        </textarea>
+                        <input type="submit" value="Post">
+                    </div>
+                </form>
+            </div>
+            <div class="feed">
+
+            </div>
+            <button class="refreshFeed"></button>
+        </div>
+        <div id="Browse">
+            <H3>Browse</H3>
+        </div>
+        <div id="Account" >
+            <H3>Account</H3>
+            <button>Sign Out</button>
+            <form id="pswChange" onsubmit="passwordChange(this);return false;">
+                <H3>Reset Password</H3>
+                <div class="inputBox">
+                    <input id="currPsw" class="input" type="password" required>
+                    <span for="currPsw" class="label">Current Password</span>
+                </div>
+                <div class="inputBox">
+                    <input id="newPsw" class="input" type="password" required>
+                    <span for="newPsw" class="label">New Password</span>
+                </div>
+                <div class="inputBox">
+                    <input id="repassword" class="input" type="password" required>
+                    <span for="repassword" class="label">Repeat Password</span>
+                </div>
+                <input id="pswChangeSubmit" class="submit" type="submit" value="Save Password">
+            </form>
+        </div>
+        <!-- <img id="logo" src="wimage.png" alt="Welcome"> -->
+        <!-- <form id="login" onsubmit="login(this);return false;">
             <H3>Login Here</H3>
             <div>
                 <label for="loginEmail" class="label">Email: </label>
@@ -73,7 +120,7 @@
                 <input id="repassword" class="input" type="password" required>
             </div>
             <input id="signupSubmit" class="submit" type="submit" value="SignUp">
-        </form>
+        </form> -->
     </div>
     <p id="userMessages"></p>
 </body>
