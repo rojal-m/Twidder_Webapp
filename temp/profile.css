@@ -1,11 +1,21 @@
-body{
-    background-color: #f7f7f7;
-    color: #393e46;
-    font-family: Inter,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen,Ubuntu,Cantarell,Fira Sans,Droid Sans,Helvetica Neue,sans-serif;
-}
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap');
 *{
     margin: 0;
     padding: 0;
+    font-family: "Montserrat", sans-serif;  
+}
+body{
+    color: #393e46;
+}
+#background{
+    background-image: url("/twidder/background.jpg");
+    position: fixed;
+    height: 100%;
+    width: 100%;
+    top: 0;
+    left: 0;
+    z-index: -1;
+    opacity: 40%;
 }
 .bodyWelcome{
     background-color: #6d9886;
@@ -13,7 +23,6 @@ body{
 .bodyProfile{
     background-color: #f7f7f7;
     color: #393e46;
-    font-family: Inter,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen,Ubuntu,Cantarell,Fira Sans,Droid Sans,Helvetica Neue,sans-serif;
 }
 .view{
     width: 100%;
@@ -29,7 +38,6 @@ body{
     margin: 100px auto 0px auto;
     position: relative;
 }
-
 #logo{
     width: auto;
     height: calc(100% - 2px);
@@ -93,56 +101,30 @@ body{
 }
 /*----------------------------------------------*/
 #tabHeader{
-    width: 900px;
-    height: fit-content;
     margin: 0px auto;
     display: flex;
-    
-    flex-direction: row;
-    justify-content: center;
+    justify-content: space-between;
     align-items: center;
-
-    background-color: #6d9886;
-    border-radius: 0px 0px 10px 10px;
 }
-
-.tab{
-    width: 150px;
-    height: calc(50px-2px);
-    margin: 20px 20px;
-    display: grid; 
-    align-items: center;
-    background-color: #6d9886;
-    border: 2px solid #393e46;
-    border-radius: 5px;
+#nav_links{
+    list-style: none;
+}
+#nav_links li{
+    display: inline-block;
+    padding: 0px 20px;
+}
+#nav_links li a{
+    transition: all 0.3s ease 0s;
+}
+#nav_links li a:hover{
+    color: #fa6c44;
     cursor: pointer;
-    user-select: none;
-}
-.tab:hover{
-    background-color: #83ad9b;
-}
-.tab:active{
-    scale: 0.9;
-}
-.tab h3{
-    margin: 10px auto;
-    width: fit-content;
-    height: fit-content;
+    text-decoration: underline;
 }
 .active{
-    background-color: #393e46;
+    color: #fa6c44;
 }
-.active:hover{
-    scale: 1;
-    background-color: #393e46;
-}
-.active:active{
-    scale: 1;
-}
-.active h3{
-    color: #6d9886;
-}
-
+/*-------------------------------------------*/
 #tabcontainer{
     width: 900px;
     height: fit-content;
@@ -162,22 +144,17 @@ body{
     height: fit-content;
     margin: 10px;
     padding: 20px;
-    background-color: #6d9886;
-    border-radius: 10px;
+    border-image: linear-gradient(90deg, #F875AA, #faa38b) 1;
+    border-style: solid;
 }
 .postMessage{
     width: 70%;
     height: auto;
     margin: 10px;
-    padding: 20px;
-    background-color: #6d9886;
-    border-radius: 10px;
 }
 #postArea{
-    border: solid thin #aaa;
     padding: 10px;
     background-color: white;
-    border-radius: 10px;
     height: calc(100% - 20px);
 }
 #postArea textarea{
@@ -186,14 +163,14 @@ body{
     border: none;
     font-size: 14px;
     font-family: Tahoma;
-    resize: vertical;
+    resize:vertical;
 }
 #postArea textarea:focus-visible{
     outline: none;
 }
 #post_button{
     float: right;
-    background: blue;
+    background: #faa38b;
     border: none;
     color: white;
     padding: 4px 11px;
