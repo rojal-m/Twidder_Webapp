@@ -6,16 +6,7 @@
 }
 body{
     color: #393e46;
-}
-#background{
-    background-image: url("/twidder/background.jpg");
-    position: fixed;
-    height: 100%;
-    width: 100%;
-    top: 0;
-    left: 0;
-    z-index: -1;
-    opacity: 40%;
+    background-color: #facdc1;
 }
 .bodyWelcome{
     background-color: #6d9886;
@@ -181,13 +172,7 @@ body{
 
 }
 /*-------------------------------------------*/
-.feedcontainer{
-    background-color: #6d9886; 
-    width: 840px;
-    border-radius: 10px;
-    margin: 10px;
-    padding: 20px;
-}
+
 #feedheader{
     width: 100%;
     height: fit-content;
@@ -197,7 +182,7 @@ body{
     align-items: center;
 }
 #refreshFeed{
-    background: blue;
+    background: #faa38b;
     border: none;
     color: white;
     padding: 4px 11px;
@@ -206,7 +191,43 @@ body{
     width: fit-content;
     height: 30px;
 }
-
+/*-------------------BROWSE--------------*/
+.search-container{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.search-bar{
+width: 100%;
+max-width: 700px;
+background: rgba(255, 255, 255, 0.489);
+display: flex;
+align-items: center;
+border-radius: 60px;
+padding: 10px 20px;
+}
+.search-bar input{
+    background: transparent;
+    flex: 1;
+    border: 0;
+    outline: none;
+    padding: 15px 20px;
+}
+::placeholder{
+    color:#fa6c44
+}
+.search-bar button img{
+    width: 20px;
+}
+.search-bar button{
+    border: 0;
+    border-radius: 50%;
+    width: 45px;
+    height: 45px;
+    background: #faa38b;
+    cursor: pointer;
+}
 /*-------------------------------------------*/
 #userMessages{
     width: fit-content;
@@ -217,7 +238,24 @@ body{
     border: 1px solid black;
     display: none;
 }
-/*----------------------------------------------*/
+/*------------------Account----------------------------*/
+.signout-nav{
+    display: flex;
+}
+.signout-nav h3{
+    flex: 1;
+}
+.signout-nav button{
+    background: #faa38b;
+    border: none;
+    color: white;
+    padding: 4px 11px;
+    font-size: 14px;
+    border-radius: 2px;
+    width: fit-content;
+    height: 30px;
+    cursor: pointer;
+}
 .inputBox{
     position: relative;
     width: 250px;
@@ -226,12 +264,12 @@ body{
 .inputBox input{
     width: 100%;
     background: transparent;
-    border: 2px solid #393e46;
+    border: 2px solid #faa38b;
     border-radius: 10px;
     outline: none;
     padding: 10px;
     font-size: 1em;
-    color: #393e46;
+    color: #facdc1;
     transition: 0.5s;
 }
 .inputBox span{
@@ -241,17 +279,60 @@ body{
     padding: 10px;
     pointer-events: none;
     font-size: 1em;
-    color: #393e46;
+    color: #fa6c44;
     text-transform: uppercase;
 }
 .inputBox input:valid ~ span,
 .inputBox input:focus ~ span{
-    color: #393e46;
+    color: #fa6c44;
     transform: translateX(10px) translateY(-7px);
     padding: 0 10px;
-    background: #6d9886;
-    border-left: 1px solid #6d9886;
-    border-right: 1px solid #6d9886;
+    background: #faa38b;
+    border-left: 1px solid #faa38b;
+    border-right: 1px solid #faa38b;
     font-size: 0.65em;
     letter-spacing: 0.2em;
+}
+#pswChange button{
+    background: #faa38b;
+    border: none;
+    color: white;
+    padding: 4px 11px;
+    font-size: 14px;
+    border-radius: 2px;
+    width: fit-content;
+    height: 30px;
+    cursor: pointer;
+}
+/*--------------------DIVIDER-------------------*/
+.lines{
+    width: 100%;
+    height: 35px;
+    position: relative;
+}
+.lines::after, .lines::before{
+    content: "";
+    position: absolute;
+    margin: auto;
+    height: 2px;
+    background: #faa38b;
+    width: 45%;
+    top: 45%;
+}
+.lines::after{
+    left: 0;
+}
+.lines::before{
+    right: 0;
+}
+.circle{
+    height: 30px;
+    width: 30px;
+    border: 2px solid #faa38b;
+    left:0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    margin: auto;
+    border-radius: 50%;
 }

@@ -10,7 +10,6 @@
     <title>Document</title>
 </head>
 <body>
-    <div id="background"></div>
     <div id="tabHeader">
         <img class="nav_logo" src="/twidder/logo.png" alt="logo" width="15%">
         <ul id="nav_links">
@@ -39,21 +38,35 @@
                     </form>
                 </div>    
             </div>
-            <div class="feedcontainer">
-                <div id="feedheader">
-                    <h4>New Feed</h4>
-                    <button id="refreshFeed">Refresh</button>
-                </div>
+            <div class="lines">
+                <div class="circle"></div>
+            </div>
+            <div id="feedheader">
+                <h4>New Feed</h4>
+                <button id="refreshFeed">Refresh</button>
             </div>
         </div>
         <div id="Browse">
-            <H3>Browse</H3>
+            <div class="search-container">
+                <form action="" class="search-bar">
+                    <input type="text" placeholder="Search Twidders">
+                    <button type="submit"><img src="/twidder/search.png"></button>
+                </form>
+            </div>
         </div>
         <div id="Account" >
-            <H3>Account</H3>
-            <button onclick="signOut()">Sign Out</button>
+            <div class="signout-nav">
+                <H3>Account</H3>
+                <button onclick="signOut()">Sign Out</button>
+            </div>
+            <div class="lines">
+                <div class="circle"></div>
+            </div>
             <form id="pswChange" onsubmit="passwordChange(this);return false;">
-                <H3>Reset Password</H3>
+                <div class="signout-nav">
+                    <H3>Reset Password</H3>
+                    <button id="pswChangeSubmit" type="submit">Save Password</button>
+                </div>
                 <div class="inputBox">
                     <input id="currPsw" type="password" required>
                     <span>Current Password</span>
@@ -66,7 +79,7 @@
                     <input id="repassword" type="password" required>
                     <span>Repeat Password</span>
                 </div>
-                <input id="pswChangeSubmit" type="submit" value="Save Password">
+                
             </form>
         </div>
     </div>
