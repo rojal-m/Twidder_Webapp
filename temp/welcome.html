@@ -4,12 +4,12 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet"type="text/css" href="welcome.css">
+    <link rel="stylesheet"type="text/css" href="../client.css">
     <title>Document</title>
 </head>
-<body>
+<body class="bodyWelcome">
     <div id="container">
-        <img id="logo" src="wimage.png" alt="Welcome">
+        <img id="logo" src="../wimage.png" alt="Welcome">
         <form id="signIn" onsubmit="signIn(this);return false;">
             <H3>Signin Here</H3>
             <div>
@@ -18,7 +18,7 @@
             </div>
             <div>
                 <label for="signInPassword" class="label">Password: </label>
-                <input id="signInPassword" class="input" type="password" required>
+                <input id="signInPassword" class="input" type="password" minlength="6" required>
             </div>
             <input id="signInSubmit" class="submit" type="submit" value="Sign In">
         </form>
@@ -55,11 +55,11 @@
             </div>
             <div>
                 <label for="signupPassword" class="label">Password: </label>
-                <input id="signupPassword" class="input" type="password" required>
+                <input id="signupPassword" class="input" type="password" minlength="6" required>
             </div>
             <div>
                 <label for="repassword" class="label">Repeat PSW: </label>
-                <input id="repassword" class="input" type="password" required>
+                <input id="repassword" class="input" type="password" minlength="6" required>
             </div>
             <input id="signupSubmit" class="submit" type="submit" value="Sign Up">
         </form>

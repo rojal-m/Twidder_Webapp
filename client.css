@@ -1,14 +1,7 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap');
 *{
     margin: 0;
     padding: 0;
-}
-.bodyWelcome{
-    background-color: #6d9886;
-}
-.bodyProfile{
-    background-color: #f7f7f7;
-    color: #393e46;
-    font-family: Inter,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen,Ubuntu,Cantarell,Fira Sans,Droid Sans,Helvetica Neue,sans-serif;
 }
 .view{
     width: 100%;
@@ -17,14 +10,16 @@
     top: 0px;
     left: 0px;
 }
-
+/*--------------------WELCOME--------------------*/
+.bodyWelcome{
+    background-color: #6d9886;
+}
 #container{
     width: 600px;
     height: 400px;
     margin: 100px auto 0px auto;
     position: relative;
 }
-
 #logo{
     width: auto;
     height: calc(100% - 2px);
@@ -34,34 +29,26 @@
     background-color: beige;
     border: 1px solid black;
 }
+#container form{
+    width: 250px;
+    position: absolute;
+    right: 0px;
+    background-color: beige;
+    border: 1px solid black;
+}
+#signIn{
+    top: 0px;
+}
+#signup{
+    bottom: 0px;
+}
 #container form h3{
     margin: 13px auto 8px auto;
     width: fit-content;
 }
-
-#signIn{
-    width: 250px;
-    position: absolute;
-    top: 0px;
-    right: 0px;
-    background-color: beige;
-    border: 1px solid black;
-    
-}
-
-#signup{
-    width: 250px;
-    position: absolute;
-    bottom: 0px;
-    right: 0px;
-    background-color: beige;
-    border: 1px solid black;
-}
-
 #container form div{
     margin: 5px 3px;
 }
-
 .label{
     display: inline-block;
     width: 93px;
@@ -70,74 +57,52 @@
     box-sizing: content-box;
     width: 143px;
 }
-
 .submit{
     margin: 0px 5px 5px 5px;
     float: right;
     padding: 3px 5px;
 }
-
-#userMessages{
-    width: fit-content;
-    height: fit-content;
-    margin: 10px auto;
-    padding: 5px 20px;
-    background-color: beige;
-    border: 1px solid black;
-    display: none;
+/*--------------------PROFILE--------------------*/
+.bodyProfile{
+    color: #393e46;
+    background-color: #facdc1;
+    font-family: "Montserrat", sans-serif;  
 }
-/*----------------------------------------------*/
+/*--------------------HEADER--------------------*/
 #tabHeader{
-    width: 900px;
-    height: fit-content;
     margin: 0px auto;
     display: flex;
-    
-    flex-direction: row;
-    justify-content: center;
+    justify-content: space-between;
     align-items: center;
-
-    background-color: #6d9886;
-    border-radius: 0px 0px 10px 10px;
 }
-
-.tab{
-    width: 150px;
-    height: calc(50px-2px);
-    margin: 20px 20px;
-    display: grid; 
-    align-items: center;
-    background-color: #6d9886;
-    border: 2px solid #393e46;
-    border-radius: 5px;
+#nav_logo{
     cursor: pointer;
-    user-select: none;
 }
-.tab:hover{
-    background-color: #83ad9b;
+#nav_links{
+    list-style: none;
 }
-.tab:active{
-    scale: 0.9;
+#nav_links li{
+    display: inline-block;
+    padding: 0px 20px;
 }
-.tab h3{
-    margin: 10px auto;
-    width: fit-content;
-    height: fit-content;
+/*
+#nav_links li a{
+    transition: all 0.3s ease 0s;
 }
-.active{
-    background-color: #393e46;
+*/
+#nav_links li a:hover{
+    color: #fa6c44;
+    cursor: pointer;
+    text-decoration: underline;
 }
-.active:hover{
-    scale: 1;
-    background-color: #393e46;
+#nav_links li .active{
+    color: #fa6c44;
 }
-.active:active{
-    scale: 1;
+#nav_links li .active:hover{
+    cursor: pointer;
+    text-decoration: none;
 }
-.active h3{
-    color: #6d9886;
-}
-
+/*--------------------BODY--------------------*/
 #tabcontainer{
     width: 900px;
     height: fit-content;
@@ -145,8 +110,25 @@
     background-color: transparent;
     border-radius: 10px;
 }
-/*-------------------------------------------*/
-#homeContainer{
+#Home, #Browse, #Account{
+    display: none;
+}
+::placeholder{
+    color:#fa6c44
+}
+.button{
+    background: #faa38b;
+    border: none;
+    color: white;
+    padding: 4px 11px;
+    font-size: 14px;
+    border-radius: 2px;
+    width: fit-content;
+    height: 30px;
+    cursor: pointer;
+}
+/*--------------------USERCONTAINER--------------------*/
+.usercontainer{
     display: flex;
     flex-direction: row;
     width: 900px;
@@ -157,85 +139,94 @@
     height: fit-content;
     margin: 10px;
     padding: 20px;
-    background-color: #6d9886;
-    border-radius: 10px;
+    border-image: linear-gradient(90deg, #F875AA, #faa38b) 1;
+    border-style: solid;
 }
 .postMessage{
     width: 70%;
     height: auto;
     margin: 10px;
-    padding: 20px;
-    background-color: #6d9886;
-    border-radius: 10px;
 }
-#postArea{
-    border: solid thin #aaa;
-    padding: 10px;
+.postArea{
+    padding: 15px;
     background-color: white;
-    border-radius: 10px;
-    height: calc(100% - 20px);
+    height: calc(100% - 30px);
 }
-#postArea textarea{
+.postArea textarea{
     width: 100%;
     height: calc(100% - 30px);
     border: none;
     font-size: 14px;
-    font-family: Tahoma;
-    resize: vertical;
+    resize:vertical;
 }
-#postArea textarea:focus-visible{
+.postArea textarea:focus-visible{
     outline: none;
 }
-#post_button{
+.postArea .post_button{
     float: right;
-    background: blue;
-    border: none;
-    color: white;
-    padding: 4px 11px;
-    font-size: 14px;
-    border-radius: 2px;
-    width: fit-content;
-    height: 30px;
+}
 
-}
-/*-------------------------------------------*/
-.feedcontainer{
-    background-color: #6d9886; 
-    width: 840px;
-    border-radius: 10px;
-    margin: 10px;
-    padding: 20px;
-}
-#feedheader{
-    width: 100%;
+/*--------------------FEEDCONTAINER--------------------*/
+.feedheader{
+    padding: 0px 32px;
+    width: calc( 100% - 64px);
     height: fit-content;
     display: flex;
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
 }
-#refreshFeed{
-    background: blue;
-    border: none;
-    color: white;
-    padding: 4px 11px;
-    font-size: 14px;
-    border-radius: 2px;
-    width: fit-content;
-    height: 30px;
-}
-
-/*-------------------------------------------*/
-#userMessages{
-    width: fit-content;
-    height: fit-content;
+.feedbox{
     margin: 10px auto;
-    padding: 5px 20px;
-    background-color: #6d9886;
-    border: 1px solid black;
+    padding: 10px 32px;
+    border-radius: 5px;
+    background: #ffffff69;
+    width: calc(100% - 64px);
+    height: fit-content;
+}
+/*-------------------BROWSE--------------*/
+#friendContainer, #friendFeedContainer {
     display: none;
 }
-/*----------------------------------------------*/
+.search-container{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 10px;
+}
+.search-bar{
+width: 100%;
+max-width: 700px;
+background: rgba(255, 255, 255, 0.489);
+display: flex;
+align-items: center;
+border-radius: 60px;
+padding: 10px 20px;
+}
+.search-bar input{
+    background: transparent;
+    flex: 1;
+    border: 0;
+    outline: none;
+    padding: 15px 20px;
+}
+.search-bar button{
+    border: 0;
+    border-radius: 50%;
+    width: 45px;
+    height: 45px;
+    background: #faa38b;
+    cursor: pointer;
+}
+.search-bar button img{
+    width: 20px;
+}
+/*------------------Account----------------------------*/
+.signout-nav{
+    display: flex;
+    justify-content: space-between;
+}
 .inputBox{
     position: relative;
     width: 250px;
@@ -244,12 +235,12 @@
 .inputBox input{
     width: 100%;
     background: transparent;
-    border: 2px solid #393e46;
+    border: 2px solid #faa38b;
     border-radius: 10px;
     outline: none;
     padding: 10px;
     font-size: 1em;
-    color: #393e46;
+    color: #fa6c44;
     transition: 0.5s;
 }
 .inputBox span{
@@ -259,17 +250,68 @@
     padding: 10px;
     pointer-events: none;
     font-size: 1em;
-    color: #393e46;
+    color: #fa6c44;
     text-transform: uppercase;
 }
 .inputBox input:valid ~ span,
 .inputBox input:focus ~ span{
-    color: #393e46;
+    color: white;
     transform: translateX(10px) translateY(-7px);
     padding: 0 10px;
-    background: #6d9886;
-    border-left: 1px solid #6d9886;
-    border-right: 1px solid #6d9886;
+    background: #faa38b;
+    border-left: 1px solid #faa38b;
+    border-right: 1px solid #faa38b;
     font-size: 0.65em;
     letter-spacing: 0.2em;
+}
+/*--------------------DIVIDER--------------------*/
+.lines{
+    width: 100%;
+    height: 35px;
+    position: relative;
+}
+.lines::after, .lines::before{
+    content: "";
+    position: absolute;
+    margin: auto;
+    height: 2px;
+    background: #faa38b;
+    width: 45%;
+    top: 45%;
+}
+.lines::after{
+    left: 0;
+}
+.lines::before{
+    right: 0;
+}
+.circle{
+    height: 30px;
+    width: 30px;
+    border: 2px solid #faa38b;
+    left:0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    margin: auto;
+    border-radius: 50%;
+}
+/*--------------------FEEDBACK--------------------*/
+.bodyWelcome #userMessages{
+    width: fit-content;
+    height: fit-content;
+    margin: 10px auto;
+    padding: 5px 20px;
+    background-color: beige;
+    border: 1px solid black;
+    display: none;
+}
+.bodyProfile #userMessages{
+    width: fit-content;
+    height: fit-content;
+    margin: 10px auto;
+    padding: 5px 20px;
+    background: #faa38b;
+    border-radius: 10px;
+    display: none;
 }

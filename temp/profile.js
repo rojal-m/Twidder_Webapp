@@ -65,3 +65,27 @@ function userInfo(element) {
         console.log("User Not Signed In.");
     }
 }
+
+function postMessage(formdata) {
+    const message = formdata.message.value;
+    let readToken = localStorage.getItem("token");
+    if ( readToken != null) {
+        const res = serverstub.getUserDataByToken(readToken);
+        if (res.success) {
+            //console.log(res.data);
+            const feed = document.getElementById('feedbody')
+            feed.innerHTML = "<div class='feedbox'>\
+                                <h4>"+res.data.firstname+" "+res.data.familyname+"</h4>\
+                                <p>"+message+"</p>\
+                              </div>" + feed.innerHTML;
+            const res2 = serverstub.postMessage(readToken,message);
+            if (!res2.sucess) {
+                console.log(res.message); 
+            }
+        } else {
+            console.log(res.message); 
+        }
+    }  else {
+        console.log("User Not Signed In.");
+    }
+}

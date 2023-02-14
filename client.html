@@ -14,7 +14,7 @@
                     </div>
                     <div>
                         <label for="signInPassword" class="label">Password: </label>
-                        <input id="signInPassword" class="input" type="password" required>
+                        <input id="signInPassword" class="input" type="password" minlength="6" required>
                     </div>
                     <input id="signInSubmit" class="submit" type="submit" value="Sign In">
                 </form>
@@ -51,32 +51,28 @@
                     </div>
                     <div>
                         <label for="signupPassword" class="label">Password: </label>
-                        <input id="signupPassword" class="input" type="password" required>
+                        <input id="signupPassword" class="input" type="password" minlength="6" required>
                     </div>
                     <div>
                         <label for="repassword" class="label">Repeat PSW: </label>
-                        <input id="repassword" class="input" type="password" required>
+                        <input id="repassword" class="input" type="password" minlength="6" required>
                     </div>
                     <input id="signupSubmit" class="submit" type="submit" value="Sign Up">
                 </form>
             </div>
-            <p id="userMessages"></p>
         </script>
         <script type="text/view" id="profileView">
             <div id="tabHeader">
-                <div class="tab" onclick="openTab('Home')">
-                    <H3>Home</H3>
-                </div>
-                <div class="tab" onclick="openTab('Browse')">
-                    <H3>Browse</H3>
-                </div>
-                <div class="tab" onclick="openTab('Account')">
-                    <H3>Account</H3>
-                </div>
+                <img id="nav_logo" src="../logo.png" alt="logo" width="15%" onclick="location.reload()">
+                <ul id="nav_links">
+                    <li><a class="nav" onclick="openTab('Home')">Home</a></li>
+                    <li><a class="nav" onclick="openTab('Browse')">Browse</a></li>
+                    <li><a class="nav" onclick="openTab('Account')">Account</a></li>
+                </ul>
             </div>
             <div id="tabcontainer">
-                <div id="Home">
-                    <div id="homeContainer">
+                <div id="Home" class="tabs">
+                    <div class="usercontainer">
                         <div class="userInfo" id="userInfo" >
                             <H2 id="name"></H2>
                             <br>
@@ -88,47 +84,94 @@
                             <p id="address"></p> 
                         </div>
                         <div class="postMessage">
-                            <form id="postArea" onsubmit="postMessage(this);return false;">
-                                    <textarea placeholder="What's on your mind?"></textarea>
-                                    <input id="post_button" type="submit" value="Post">
+                            <form class="postArea" onsubmit="postMessage(this.message1,'user');return false;">
+                                <textarea id="message1" placeholder="What's on your mind?" required></textarea>
+                                <input class="post_button button" type="submit" value="Post">
                             </form>
-                        </div>    
+                        </div>
+                    </div>
+                    <div class="lines">
+                        <div class="circle"></div>
                     </div>
                     <div class="feedcontainer">
-                        <div id="feedheader">
-                            <h4>New Feed</h4>
-                            <button id="refreshFeed">Refresh</button>
+                        <div class="feedheader">
+                            <h3>New Feed</h3>
+                            <button class="button" onclick="displayFeed('user')">Refresh</button>
+                        </div>
+                        <div class="feedbody">
                         </div>
                     </div>
                 </div>
-                <div id="Browse">
-                    <H3>Browse</H3>
+                <div id="Browse" class="tabs">
+                    <div class="search-container">
+                        <form class="search-bar" onsubmit="searchUser(this);return false;">
+                            <input id="friendEmail" type="email" placeholder="Search Twidders" required>
+                            <button type="submit"><img src="../search.png"></button>
+                        </form>
+                    </div>
+                    <div class="usercontainer" id="friendContainer">
+                        <div class="userInfo" id="friendInfo" >
+                            <H2 id="name"></H2>
+                            <br>
+                            <h4>Email</h4>
+                            <p id="email"></p>
+                            <h4>Gender</h4>
+                            <p id="gender"></p>
+                            <h4>Address</h4>
+                            <p id="address"></p> 
+                        </div>
+                        <div class="postMessage">
+                            <form class="postArea" onsubmit="postMessage(this.message2,'friend');return false;">
+                                <textarea id="message2" placeholder="What's on your mind?" required></textarea>
+                                <input class="post_button button" type="submit" value="Post">
+                            </form>
+                        </div>
+                    </div>
+                    <div class="lines">
+                        <div class="circle"></div>
+                    </div>
+                    <div class="feedcontainer" id="friendFeedContainer">
+                        <div class="feedheader">
+                            <h3>New Feed</h3>
+                            <button class="button" onclick="displayFeed('friend')">Refresh</button>
+                        </div>
+                        <div class="feedbody">
+                        </div>
+                    </div>
                 </div>
-                <div id="Account" >
-                    <H3>Account</H3>
-                    <button onclick="signOut()">Sign Out</button>
-                    <form id="pswChange" onsubmit="passwordChange(this);return false;">
-                        <H3>Reset Password</H3>
+                <div id="Account" class="tabs">
+                    <div class="signout-nav">
+                        <H3>Account</H3>
+                        <button class="button" onclick="signOut()">Sign Out</button>
+                    </div>
+                    <div class="lines">
+                        <div class="circle"></div>
+                    </div>
+                    <form onsubmit="passwordChange(this);return false;">
+                        <div class="signout-nav">
+                            <H3>Reset Password</H3>
+                            <button class="button" type="submit">Save Password</button>
+                        </div>
                         <div class="inputBox">
-                            <input id="currPsw" type="password" required>
+                            <input id="currPsw" type="password" minlength="6" required>
                             <span>Current Password</span>
                         </div>
                         <div class="inputBox">
-                            <input id="newPsw" type="password" required>
+                            <input id="newPsw" type="password" minlength="6" required>
                             <span>New Password</span>
                         </div>
                         <div class="inputBox">
-                            <input id="repassword" type="password" required>
+                            <input id="repassword" type="password" minlength="6" required>
                             <span>Repeat Password</span>
                         </div>
-                        <input id="pswChangeSubmit" type="submit" value="Save Password">
                     </form>
                 </div>
             </div>
-            <p id="userMessages"></p>
+            
         </script>
     </head>
     <body>
         <div id="view"></div>
+        <p id="userMessages"></p>
     </body>
 </html>
