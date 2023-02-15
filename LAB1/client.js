@@ -174,6 +174,7 @@ function postMessage(formdata,condition) {
                 } else if (condition == 'friend') {
                     enterfeed(con.feed[1], data, false);
                 }
+                formdata.value = "";
             } else {
                 message(res.message); 
             }
@@ -265,6 +266,12 @@ function clearForm(formData) {
     });*/
     Object.keys(formData).forEach(function (key) {
         var val = formData[key];
+        if (val.type == "submit") {
+            return;
+        } else if ( val.id == "gender") {
+            val.options[0].selected = 'selected';
+            return;
+        }
         val.value = null;
     });
 }
