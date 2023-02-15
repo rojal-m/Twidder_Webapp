@@ -24,7 +24,7 @@ displayView = function() {
         con.feed = document.getElementsByClassName("feedbody");
         con.fCont = document.getElementById("friendContainer");
         con.ffeedCont = document.getElementById("friendFeedContainer"); 
-        openTab('Home');
+        openTab();
         userInfo('user');
     } else {
         con.view.innerHTML = con.welcomeView.innerText;
@@ -33,17 +33,26 @@ displayView = function() {
     }
 };
 
-function openTab(tabName) {
+function openTab(currTab) {
     hideMessage();
+    if (currTab != null) {
+        localStorage.setItem("currTab", currTab);
+    } else {
+        currTab = localStorage.getItem("currTab");
+        if (currTab == null || (currTab != 'Home' && currTab && 'Browse' && currTab != 'Account')) {
+            currTab = 'Home'
+            localStorage.setItem("currTab", currTab);
+        }
+    }
     for (let i = 0; i < con.nav.length; i++) {
-        if ( con.nav[i].innerText == tabName ) {
+        if ( con.nav[i].innerText == currTab ) {
             con.nav[i].classList.add("active");
         } else{ 
             con.nav[i].classList.remove("active");
         }
     }
     for (let i = 0; i < con.tabs.length; i++) {
-        if ( con.tabs[i].id == tabName ) {
+        if ( con.tabs[i].id == currTab ) {
             con.tabs[i].style.display = 'block';
         } else{ 
             con.tabs[i].style.display = 'none';
@@ -204,6 +213,7 @@ function signOut(){
         const res = serverstub.signOut(readToken);
         if (res.success) {
             localStorage.removeItem("token");
+            localStorage.removeItem("currTab");
             displayView();
         } else {
             message(res.message); 
