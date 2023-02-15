@@ -223,7 +223,7 @@ function signOut(){
     }
 }
 function signIn(formData){
-    let email = formData.signInEmail.value;
+    let email = formData.signInEmail.value.toLowerCase();
     let password = formData.signInPassword.value;
     const res = serverstub.signIn(email, password);
     if (res.success) {
@@ -238,7 +238,7 @@ function signup(formData){
     let password = formData.signupPassword.value;
     let repassword = formData.repassword.value;
     let user = {
-        email : formData.signupEmail.value,
+        email : formData.signupEmail.value.toLowerCase(),
         password : password,
         firstname: formData.fname.value,
         familyname: formData.lname.value,
