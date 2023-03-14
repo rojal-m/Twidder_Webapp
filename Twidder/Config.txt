@@ -1,0 +1,87 @@
+1. Install Python
+2. Put python to path environment
+3. Install virtualenv using pip {
+	> python -m pip install --user virtualenv
+   }
+4. Put virtualenv's path to path environment
+4. Make a suitable directory to setup the virtual environment {
+	> mkdir py_virEnv
+	> cd py_virEnv
+	> virtualenv -p python3 tddd97
+   }
+5. Activate the environment {
+	> tddd97\Scripts\activate
+   }
+
+Note [in Windows]: While trying to activate the environment I got an error saying that "running scripts is disabled on this system".
+So I did:
+	> Set-ExecutionPolicy Unrestricted -Scope Process
+Then I could activated the environment and after that I did:
+	> Set-ExecutionPolicy Default -Scope Process
+So that the system wont stay unsafe.
+
+6. Install Flask {
+	> pip install Flask
+   }
+7. install Gevent {
+	> pip install gevent
+{
+
+
+pip install gunicorn
+
+
+
+
+Running the server:
+	> flask --app server run --debug
+Or:
+	> python server.py
+
+
+Ideal Test Cases for Lab 2
+SIGN UP:
+POST Request
+Body in JSON example:
+{"firstname":"Rojal","familyname":"Maharjan","gender":"Male","city":"Linköping","country":"Sweden","email":"roj@gmail.com","password":"123456"}
+
+SIGN IN:
+POST Request
+Body in JSON example:
+{"email":"roj@gmail.com","password":"123456"}
+
+SIGN OUT:
+POST Request
+Header should have key "auth" and the value should the the data when signing in
+
+CHANGE PASSWORD:
+PUT Request
+Header should have key "auth" and the value should the the data when signing in
+Body in JSON example:
+{"oldPassword":"123456","newPassword":"098765"}
+
+GET USER DATA BY TOKEN:
+GET Request
+Header should have key "auth" and the value should the the data when signing in
+
+GET USER DATA BY TOKEN:
+GET Request
+Header should have key "auth" and the value should the the data when signing in
+HTTP URL should have an email at the end. Example:
+http://127.0.0.1:5000/email/get_data/almaharjan@gmail.com
+
+GET USER MESSAGE BY TOKEN:
+GET Request
+Header should have key "auth" and the value should the the data when signing in
+
+GET USER MESSAGE BY TOKEN:
+GET Request
+Header should have key "auth" and the value should the the data when signing in
+HTTP URL should have an email at the end. Example:
+http://127.0.0.1:5000/email/get_message/almaharjan@gmail.com
+
+POST MESSAGE
+POST Request
+Header should have key "auth" and the value should the the data when signing in
+Body in JSON example:
+{"email":"roj@gmail.com","message":"hello!!"}
