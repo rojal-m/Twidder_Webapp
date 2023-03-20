@@ -66,17 +66,26 @@ sessionSetUp = function(token){
     console.log(window.location.port);
     let ws = new WebSocket(`ws://${window.location.hostname}:${window.location.port}/echo`);
     console.log(ws);
+
+    ws.onclose =function(){
+        console.log(ws);
+        console.log("closed connection");
+        ws.send(token);
+    }
     
     ws.onopen = function(){
         console.log(token);
         console.log("here");
         ws.send(token);
     };
- 
+    
+    //only when server sends message
     ws.onmessage = function (message){
         console.log(message);
         if(message.data == "sign_out") {
-            signOut();
+            localStorage.removeItem("token");
+            localStorage.removeItem("currTab");
+            displayView();
         }
  
     };

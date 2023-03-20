@@ -1,11 +1,8 @@
 from flask import Flask, request, jsonify
 from flask_sock import Sock
-#from waitress import serve
 import eventlet
 eventlet.monkey_patch()
 from eventlet import wsgi
-import socket
-import json
 import re           #For email validation
 import uuid         #For generating token
 import database_handler
@@ -31,57 +28,50 @@ loggedInUserSocket = {}
 
 @app.route('/socketInfo', methods = ['GET'])
 def socketInfo():
-    temp = ""
-    for key, value in loggedInUserSocket.items():
-        temp = key+", "+ temp
-    return temp, 200
+    print(loggedInUserSocket)
+    return "", 200
 
 @sock.route('/echo')
 def echo(ws):
     while True:
         # Making sure we have a valid socket
         if not ws:
-            print("1001")
             return
-
         try:
-            print("1")
             token = ws.receive()
-            print("2")
             if token is not None:
-                print("3")
-                print(token)
                 email = database_handler.login_get_email(token)
-                print("4")
-            if email is not None:
-                tokens = database_handler.login_get_allToken(email)
-                print("5")
-                for tok in range(len(tokens)):
-                    if tokens[tok] is not token:
-                        old_user_ws = loggedInUserSocket.get(tokens[tok])
-                        print("6")
-                        if old_user_ws is not None:
-                            try:
-                                print("7")
-                                old_user_ws.send('sign_out')
-                                loggedInUserSocket.pop(tokens[tok])
-                            except Exception as e:
-                                print("10")
-                                print(e)
-
-                loggedInUserSocket[token] = ws
-
+                if email is not None:
+                    if email in loggedInUserSocket:
+                        print(email + ": Not First login")
+                        token_with_socket = loggedInUserSocket[email].copy()
+                        if token not in token_with_socket:
+                            print("Login from different browser")
+                            for old_token, old_socket in token_with_socket.items():
+                                old_socket.send('sign_out')
+                                if (database_handler.login_delete(old_token)):
+                                    loggedInUserSocket[email][old_token].close()
+                                    del loggedInUserSocket[email][old_token]
+                                    print("Successfully signed out")
+                                else:
+                                    print("Could not sign out")
+                            loggedInUserSocket[email][token] = ws
+                        else:
+                            print("Browser refresh")
+                            loggedInUserSocket[email][token] = ws 
+                    else:
+                        print(email + ": First login")
+                        loggedInUserSocket[email] = {}
+                        loggedInUserSocket[email][token] = ws
+                else:
+                    print("Email not logged in")
+                    return
             else:
-                print("12")
+                print("Token not received")
                 return
-
         except Exception as e:
-            print("13")
             print(e)
             return
-
-
-
 
 @app.route('/sign_in', methods = ['POST'])
 def sign_in():
@@ -149,6 +139,9 @@ def sign_out():
     if validateTokenResp["success"]:
         # set user to not logged in
         if (database_handler.login_delete(token)):
+            loggedInUserSocket[validateTokenResp["email"]][token].close()
+            del loggedInUserSocket[validateTokenResp["email"]][token]
+            del loggedInUserSocket[validateTokenResp["email"]]
             return "", 200                                      #[OK] "Successfully signed out" 204
         else:
             return "", 500                                      #[Internal Server Error] "Unable to sign out" "Could not sign out"
@@ -327,9 +320,7 @@ def correctEmail(email):
     
 
 if __name__ == '__main__':
-    app.debug = False
-    app_host = '192.168.10.122'#socket.gethostbyname(socket.gethostname())
+    app.debug = True
+    app_host = '127.0.0.1'
     app_port = 5000
-    #print("Waitress: Serving on http://"+app_host+":"+app_port)
     wsgi.server(eventlet.listen((app_host, app_port)), app)
-    #serve(app, listen= app_host+':'+app_port)
